@@ -11,10 +11,8 @@ import java.io.IOException;
 
 import okhttp3.Call;
 import okhttp3.Callback;
-import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
@@ -80,7 +78,13 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public String requestPost(View view) throws IOException {
+        PostExample example = new PostExample();
+        String json = example.bowlingJson("Jesse", "Jake");
+        String response = example.post("http://www.roundsapp.com/post", json);
+        System.out.println(response);
 
+    }
 
 
 }
